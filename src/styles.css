@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+
+.fondoChido {
+    background-image: linear-gradient(to bottom right, rgb(255, 255, 255), rgb(102, 102, 102));
+    background-size: cover;
+    min-height: 100vh;
+}
+
+.divisorNav{
+    padding-left: 10px;
+    padding-right: 10px;
+    color:white;
+    margin:auto;
+    font-weight: 300;
+}

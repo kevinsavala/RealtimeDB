@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body class="fondoChido">
+    
+
+        <div class="row align-items-center" style="height: 100vh;">
+          <div class="mx-auto col-10 col-md-8 col-lg-6">
+            <!-- Form -->
+            <form class="form-example" action="" method="post" #RegisterForm="ngForm" (ngSubmit)="registerUser(RegisterForm.value)">
+              <h1>Registrate</h1>
+              <p class="description">
+                Crea una cuenta para poder realizar tu reservación!
+              </p>
+              <!-- Input fields -->
+              <div class="form-group" >
+                <label for="firstname">Usuario:</label>
+                <input
+                  ngModel
+                  type="text"
+                  class="form-control username"
+                  id="username"
+                  placeholder="Usuario..."
+                  name="username"
+                />
+              </div>
+              <div class="form-group" >
+                <label for="firstname">Nombre:</label>
+                <input
+                  ngModel
+                  type="text"
+                  class="form-control name"
+                  id="firstname"
+                  placeholder="Nombre..."
+                  name="firstname"
+                />
+              </div>
+              <div class="form-group">
+                <label for="lasttname">Apellido:</label>
+                <input
+                  ngModel
+                  type="text"
+                  class="form-control lastname"
+                  id="lastname"
+                  placeholder="Apellido..."
+                  name="lastname"
+                />
+              </div>
+              <div class="form-group">
+                <label for="email">Correo electrónico:</label>
+                <input
+                  ngModel
+                  type="email"
+                  class="form-control email"
+                  id="email"
+                  placeholder="Email..."
+                  name="email"
+                />
+              </div>
+              <div class="form-group">
+                <label for="password">Contraseña:</label>
+                <input
+                  ngModel
+                  type="password"
+                  class="form-control password"
+                  id="password"
+                  placeholder="Contraseña..."
+                  name="password"
+                />
+              </div>
+              <input type="submit" class="btn btn-primary btn-customized mt-4" id="saveData" name="signup_submit" value="Registrar usuario"/>
+
+            </form>
+            <!-- Form end -->
+          </div>
+        </div>
+     
+</body>
+</html>

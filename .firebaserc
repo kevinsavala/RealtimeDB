@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "proyectotours-81d94": {
+      "hosting": {
+        "RealtimeDB": [
+          "proyectotours-81d94"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "proyectotours-81d94"
+  }
+}
