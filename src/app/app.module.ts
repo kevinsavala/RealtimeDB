@@ -17,6 +17,7 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { NavbarloginComponent } from './navbarlogin/navbarlogin.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
     SignupComponent,
     NavbarComponent,
     HomeComponent,
-    ReservarComponent
+    ReservarComponent,
+    NavbarloginComponent
   ],
   imports: [
     BrowserModule,

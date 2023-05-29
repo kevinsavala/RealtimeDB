@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { getDatabase, set, ref, update } from '@angular/fire/database';
 import { Database } from '@angular/fire/database';
 import { Router } from '@angular/router';
+import { OnInit } from '@angular/core';
+import { AunthenticationService } from '../services/aunthentication.service';
 
 @Component({
   selector: 'app-signup',
@@ -10,8 +12,10 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent {
   // Initialize Firebase
-
-  constructor(public database: Database, private router: Router){
+  email : string = '';
+  password : string = '';
+  phone : string = '';
+  constructor(public database: Database, private router: Router, private auth : AunthenticationService){
 
   }
   
@@ -20,6 +24,20 @@ export class SignupComponent {
   }
 
   registerUser(value: any){
+    if(this.email == '') {
+      alert('Please enter email');
+      return;
+    }
+
+    if(this.password == '') {
+      alert('Please enter password');
+      return;
+    }
+
+    if(this.phone == ''){
+      alert('Please enter phone number');
+      return;
+    }
     set(ref(this.database, 'users/' + value.username), {
       username: value.username,
       firstname: value.firstname,
@@ -28,6 +46,9 @@ export class SignupComponent {
       password: value.password
       
     });
+    
+    this.auth.register(this.email, this.password);
+
     alert("usuario creado");
     this.goToPage("inicio");
     /* <button (click)="router.navigate(['/master']);">

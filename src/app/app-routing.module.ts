@@ -5,14 +5,14 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component'
 import { SignupComponent } from './signup/signup.component'
 import { HomeComponent } from './home/home.component';
+import { ReservarComponent } from './reservar/reservar.component';
 
 const routes: Routes = [
   {path: 'inicio', component : HomeComponent},
   {path: 'login', component : LoginComponent},
   {path: 'signup', component : SignupComponent},
-  {path: 'reservar', component : SignupComponent},
-  {path: '', redirectTo: '/inicio', pathMatch: 'full'},
-  {path: '**', redirectTo: '/inicio'}
+  {path: 'reservar', component : ReservarComponent},
+  {path: '', redirectTo: '/inicio', pathMatch: 'full'}
 ];
 
 @NgModule({

@@ -4,36 +4,36 @@ import { FormControl } from '@angular/forms'
 import { AunthenticationService } from '../services/aunthentication.service';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  loginForm = new FormGroup({
-    email: new FormControl('',{validators: [Validators.required, Validators.email],nonNullable:true} ),
-    passsword: new FormControl('', [Validators.required])
-  });
-  constructor(
-    private authService: AunthenticationService,
-    ){}
+  
+  email : string = '';
+  password : string = '';
 
-  ngOnInit(): void{
-    this.loginForm.reset();
-  }
+  constructor(private auth : AunthenticationService){}
 
-  get password(){
-    return this.loginForm.get('password');
-  }
+  login() {
 
-  submit(){
-    if(this.loginForm.valid){
+    if(this.email == '') {
+      alert('Please enter email');
       return;
     }
-    const email = this.loginForm.value;
-    const password = this.loginForm.value;
 
-    //this.authService.login(email, password);
+    if(this.password == '') {
+      alert('Please enter password');
+      return;
+    }
+
+    this.auth.login(this.email,this.password);
+    
+    this.email = '';
+    this.password = '';
+
   }
+
+  
 }

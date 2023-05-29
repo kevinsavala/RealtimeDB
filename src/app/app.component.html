@@ -1,4 +1,15 @@
-<app-navbar></app-navbar>
+
+
+<div *ngIf="checkLogin(); then navbarLogged else navbar">
+
+
+</div>
+
+<ng-template #navbar><app-navbar></app-navbar></ng-template>
+<ng-template #navbarLogged><app-navbarlogin></app-navbarlogin></ng-template>
+
+
+
 <router-outlet></router-outlet>
 
 

@@ -9,7 +9,8 @@
       <div class="row align-items-center" style="height: 100vh;">
         <div class="mx-auto col-10 col-md-8 col-lg-6">
           <!-- Form -->
-          <form class="form-example" [formGroup]="loginForm" action="" method="post" (ngSubmit)="submit()">
+          
+          <form class="form-example" action="" method="post">
             <h1>Iniciar sesión</h1>
             <p class="description">
               Inicia sesión para poder reservar tu viaje!
@@ -24,8 +25,9 @@
                 class="form-control email"
                 id="email"
                 placeholder="Correo electrónico..."
-                formControlName="email"
+                name="email"
                 required="Obligatorio"
+                [(ngModel)]="email"
               />
             </div>
             <div class="form-group">
@@ -35,16 +37,17 @@
                 class="form-control password"
                 id="password"
                 placeholder="Contraseña..."
-                formControlName="password"
+                name="password"
                 required="Obligatorio"
+                [(ngModel)]="password"
               />
             </div>
             <br>
             <span>¿Nuevo en la plataforma? <a routerLink="/signup">Regístrate</a></span>
             <br>
                         
-            <button type="submit" class="btn btn-primary btn-customized mt-4">
-              Iniciar sesión
+            <button type="submit" class="btn btn-primary btn-customized mt-4" (click)="login()">
+            Iniciar sesión
             </button>
           </form>
           <!-- Form end -->
