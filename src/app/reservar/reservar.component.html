@@ -1,1 +1,49 @@
-<p>reservar works!</p>
+<div class="containerTours">
+  <div class="resertour">
+    <h1>Tours Disponibles</h1>
+    <ul>
+      <li *ngFor="let tour of tours">
+        <app-tourlist [tour]="tour" (reserve)="onReserve($event)"></app-tourlist>
+      </li>
+    </ul>
+    
+    <form (ngSubmit)="onSubmit()" #reservationForm="ngForm">
+        <label for="date">Fecha:  </label>
+        <input type="date" id="date" name="date" ngModel>
+        <br>
+        <label for="time">Hora:  </label>
+        <input type="time" id="time" name="time" ngModel>
+        <br>
+        <button mat-raised-button color="accent" type="button"  type="submit">Reservar</button>
+      </form>
+    
+    <div *ngIf="reservations.length > 0">
+      <h1>...RESERVACIONES...</h1>
+      <table class="table table-striped">
+          <thead>
+              <tr>
+                <th scope="col">DIA</th>
+                <th scope="col">FECHA</th>
+                <th scope="col">NOMBRE DEL TOUR</th>
+                <th scope="col">PRECIO DEL TOUR</th>
+              </tr>
+            </thead>
+            <tr *ngFor="let reservation of reservations">
+              <td >{{ reservation.date }}</td>
+              <td>{{ reservation.time }}</td>
+              <td>{{ reservedTours.name }}</td>
+          <td>$ {{reservedTours.price }}</td>
+            </tr>
+      </table>
+      <div *ngIf="alertMessage" class="alert" [ngClass]="'alert-' + alertType" role="alert">
+        {{ alertMessage }}
+      </div>
+    </div>
+    
+    <div *ngIf="reservations.length === 0">
+      <p>No hay reservaciones hechas.</p>
+    </div>
+      
+    </div>
+
+</div>

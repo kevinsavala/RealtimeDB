@@ -6,13 +6,17 @@ import { LoginComponent } from './login/login.component'
 import { SignupComponent } from './signup/signup.component'
 import { HomeComponent } from './home/home.component';
 import { ReservarComponent } from './reservar/reservar.component';
+import { UsersComponent } from './users/users.component';
+import { TourlistComponent } from './tourlist/tourlist.component';
 
 const routes: Routes = [
+  {path: '', redirectTo: '/inicio', pathMatch: 'full'},
   {path: 'inicio', component : HomeComponent},
   {path: 'login', component : LoginComponent},
   {path: 'signup', component : SignupComponent},
   {path: 'reservar', component : ReservarComponent},
-  {path: '', redirectTo: '/inicio', pathMatch: 'full'}
+  {path: 'userview', component: UsersComponent},
+  { path: "tourlist", component: TourlistComponent }
 ];
 
 @NgModule({

@@ -18,6 +18,8 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { NavbarloginComponent } from './navbarlogin/navbarlogin.component';
+import { UsersComponent } from './users/users.component';
+import { TourlistComponent } from './tourlist/tourlist.component';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { NavbarloginComponent } from './navbarlogin/navbarlogin.component';
     NavbarComponent,
     HomeComponent,
     ReservarComponent,
-    NavbarloginComponent
+    NavbarloginComponent,
+    UsersComponent,
+    TourlistComponent
   ],
   imports: [
     BrowserModule,
