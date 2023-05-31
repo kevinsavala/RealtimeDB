@@ -1,13 +1,15 @@
 <div class="containerTours">
   <div class="resertour">
-    <h1>Tours Disponibles</h1>
-    <ul>
-      <li *ngFor="let tour of tours">
-        <app-tourlist [tour]="tour" (reserve)="onReserve($event)"></app-tourlist>
-      </li>
-    </ul>
+    <h3>Tours Disponibles</h3>
     
-    <form (ngSubmit)="onSubmit()" #reservationForm="ngForm">
+    <form #ReservaForm="ngForm" (ngSubmit)="registerTour(ReservaForm.value)">
+        <label for="tours">Elige un tour:</label>
+        <select id="tours" name="tours" ngModel>
+          <option value="seoul" selected>Seoul, Korea.</option>
+          <option value="vegas">Las Vegas, USA.</option>
+          <option value="kyoto">Kyoto, Japon.</option>
+          <option value="paris">Paris, Francia.</option>
+        </select> 
         <label for="date">Fecha:  </label>
         <input type="date" id="date" name="date" ngModel>
         <br>
@@ -16,7 +18,7 @@
         <br>
         <button mat-raised-button color="accent" type="button"  type="submit">Reservar</button>
       </form>
-    
+    <!-- 
     <div *ngIf="reservations.length > 0">
       <h1>...RESERVACIONES...</h1>
       <table class="table table-striped">
@@ -32,16 +34,17 @@
               <td >{{ reservation.date }}</td>
               <td>{{ reservation.time }}</td>
               <td>{{ reservedTours.name }}</td>
-          <td>$ {{reservedTours.price }}</td>
+              <td>$ {{reservedTours.price }}</td>
             </tr>
       </table>
-      <div *ngIf="alertMessage" class="alert" [ngClass]="'alert-' + alertType" role="alert">
-        {{ alertMessage }}
-      </div>
-    </div>
-    
-    <div *ngIf="reservations.length === 0">
+      
+    </div> -->
+    <!-- 
+      <div *ngIf="reservations.length === 0">
       <p>No hay reservaciones hechas.</p>
+    </div> -->
+    <div *ngIf="alertMessage" class="alert" [ngClass]="'alert-' + alertType" role="alert">
+      {{ alertMessage }}
     </div>
       
     </div>

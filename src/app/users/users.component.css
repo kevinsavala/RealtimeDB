@@ -1,6 +1,13 @@
-table{
-    padding: 45px;
-    text-align: left;
-    color: red;
+html, body {
+    height: 100%;
 }
-    
+
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    display: table-cell;
+    vertical-align: middle;
+}

@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { ReservarComponent } from './reservar/reservar.component';
 import { UsersComponent } from './users/users.component';
 import { TourlistComponent } from './tourlist/tourlist.component';
+//import { LoginPhoneComponent } from './login-phone/login-phone.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/inicio', pathMatch: 'full'},
@@ -16,7 +17,9 @@ const routes: Routes = [
   {path: 'signup', component : SignupComponent},
   {path: 'reservar', component : ReservarComponent},
   {path: 'userview', component: UsersComponent},
-  { path: "tourlist", component: TourlistComponent }
+  {path: "tourlist", component: TourlistComponent},
+  //{path: "loginPhone", component: LoginPhoneComponent}
+
 ];
 
 @NgModule({

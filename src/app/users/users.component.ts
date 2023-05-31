@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 import { getDatabase, ref, onValue } from 'firebase/database';
 import { initializeApp } from "firebase/app";
 import { environment } from 'src/environments/environment';
@@ -12,7 +12,8 @@ const starCountRef = ref(db, 'users/');
 let auxiliar : any;
 var datos : any[] = [];
 let tabla : HTMLElement = document.getElementById("tabla")!;
-const body = document.body;
+var body : HTMLElement = document.body;
+console.log(body);
 
 @Component({
   selector: 'app-users',
@@ -21,7 +22,6 @@ const body = document.body;
 })
 export class UsersComponent {
     constructor(){
-      this.getData();
     }
   public getData(){
     onValue(starCountRef, (snapshot) => {
@@ -29,10 +29,11 @@ export class UsersComponent {
       let tablaBody = document.createElement("tbody");
 
       data = Object.values(snapshot.val()); //se tiene el array con objetos 
-      console.log("data onValue: " + Object.values(data)); //se tiene el segundo objeto en forma de array
+      //console.log("data onValue: " + Object.values(data)); //se tiene el segundo objeto en forma de array
       
 
       //SE CREA LA TABLA DE USUARIOS
+      const div = document.createElement('div');
       const tbl = document.createElement('table');
       var thead = document.createElement('thead');
       var orderArrayHeader = ["Correo", "Nombre", "Apellido", "Contraseña", "Usuario"];
@@ -49,11 +50,11 @@ export class UsersComponent {
 
         for(let j=0; j<5; j++){
           const cell = row.insertCell();
-          console.log("["+i+"]" + "["+j+"]: " + Object.values(data[i])[j]);
+          //console.log("["+i+"]" + "["+j+"]: " + Object.values(data[i])[j]);
           let aux : any; 
           aux = Object.values(data[i])[j];
           
-          cell.setAttribute("class", "celdas");
+          
           cell.appendChild(document.createTextNode(aux));
           
           row.setAttribute("class", "celdas");
@@ -61,13 +62,19 @@ export class UsersComponent {
 
         }
       }
-      body.appendChild(tbl);
+      tbl.setAttribute("class","tablee");
+      div.setAttribute("class", "centerAll")
+      div.appendChild(tbl);
+      body?.appendChild(div);
     });
     
     //auxiliar = data;
 
     //console.log("AUXILIAR: " + auxiliar);
     //console.log("DATA: " + data[1]);
+  }
+  public getBody(){
+    document.getElementById("tablas");
   }
 }
 

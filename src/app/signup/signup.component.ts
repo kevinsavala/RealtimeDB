@@ -43,8 +43,8 @@ export class SignupComponent {
       firstname: value.firstname,
       lastname: value.lastname,
       email: value.email,
-      password: value.password
-      
+      password: value.password,
+      phone: value.phone
     });
     
     this.auth.register(this.email, this.password);

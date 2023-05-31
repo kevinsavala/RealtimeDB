@@ -32,7 +32,7 @@ import { TourlistComponent } from './tourlist/tourlist.component';
     ReservarComponent,
     NavbarloginComponent,
     UsersComponent,
-    TourlistComponent
+    TourlistComponent,
   ],
   imports: [
     BrowserModule,
