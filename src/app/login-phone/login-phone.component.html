@@ -1,6 +1,50 @@
-<head>
-    
-</head>
-<body>
-    <div id="recaptcha-container"></div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body class="fondoChido">
+    <div>
+      <div class="row align-items-center" style="height: 100vh;">
+        <div class="mx-auto col-10 col-md-8 col-lg-6">
+          <!-- Form -->
+          
+          <form class="form-example" action="" method="post">
+            <h1>Iniciar sesión</h1>
+            <p class="description">
+              Inicia sesión para poder reservar tu viaje!
+            </p>
+            <!-- Input fields -->
+            <div class="form-group">
+              <label for="username">Telefono:</label> 
+              <!-- <span *ngIf="email?.errors?.['required']" style="color: red;"> Obligatorio </span> -->
+              
+              <input
+                type="text"
+                class="form-control text"
+                id="number"
+                placeholder="Teléfono..."
+                name="number"
+                required="Obligatorio"
+                [(ngModel)]="number"
+              />
+            </div>
+            <br>
+            <div id="recaptcha-container"></div>
+            <br>
+            <span>¿Nuevo en la plataforma? <a routerLink="/signup">Regístrate</a></span>
+            <br>
+            <span>¿Deseas iniciar sesión con tu correo? <a routerLink="/login">Inicia sesión (correo)</a></span>
+            <br>
+                        
+            <button type="submit" class="btn btn-primary btn-customized mt-4" (click)="login()">
+            Iniciar sesión
+            </button>
+          </form>
+          <!-- Form end -->
+        </div>
+      </div>
+    </div>
 </body>
+</html>

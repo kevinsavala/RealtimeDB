@@ -23,6 +23,7 @@ import { TourlistComponent } from './tourlist/tourlist.component';
 import { LoginPhoneComponent } from './login-phone/login-phone.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +36,7 @@ import { LoginPhoneComponent } from './login-phone/login-phone.component';
     UsersComponent,
     TourlistComponent,
     LoginPhoneComponent,
+
   ],
   imports: [
     BrowserModule,
