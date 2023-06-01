@@ -2,14 +2,15 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { from } from 'rxjs';
-import { GoogleAuthProvider, GithubAuthProvider, FacebookAuthProvider} from '@angular/fire/auth'
+import { GoogleAuthProvider, GithubAuthProvider, FacebookAuthProvider, ApplicationVerifier, RecaptchaVerifier} from '@angular/fire/auth'
+import { signInWithPhoneNumber } from 'firebase/auth';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AunthenticationService {
 
-  constructor(private fireauth: AngularFireAuth, private router : Router) { }
+  constructor(public fireauth: AngularFireAuth, private router : Router) { }
 
   //login
   login(email: string, password: string){
@@ -31,7 +32,12 @@ export class AunthenticationService {
       this.router.navigate(['/register']);
     })
   }
+  loginPhone(phone: string, captcha: RecaptchaVerifier){
 
+    this.fireauth.signInWithPhoneNumber(phone, captcha).then(result => {
+      this.router.navigate(['/verify'])
+    }).catch(error => console.log(error));
+  }
   logout() {
     this.fireauth.signOut().then( () => {
       localStorage.removeItem('token');
@@ -40,5 +46,7 @@ export class AunthenticationService {
       alert(err.message);
     })
   }
+
+
   
 }

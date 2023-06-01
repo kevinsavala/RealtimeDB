@@ -1,7 +1,8 @@
 <div class="containerTours">
   <div class="resertour">
+     <br><br>
     <h3>Tours Disponibles</h3>
-    
+    <br>
     <form #ReservaForm="ngForm" (ngSubmit)="registerTour(ReservaForm.value)">
         <label for="tours">Elige un tour:</label>
         <select id="tours" name="tours" ngModel>
@@ -10,11 +11,15 @@
           <option value="kyoto">Kyoto, Japon.</option>
           <option value="paris">Paris, Francia.</option>
         </select> 
+        <br>
+        <br>
         <label for="date">Fecha:  </label>
         <input type="date" id="date" name="date" ngModel>
         <br>
+        <br>
         <label for="time">Hora:  </label>
         <input type="time" id="time" name="time" ngModel>
+        <br>
         <br>
         <button mat-raised-button color="accent" type="button"  type="submit">Reservar</button>
       </form>

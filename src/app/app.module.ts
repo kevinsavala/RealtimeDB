@@ -20,6 +20,7 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { NavbarloginComponent } from './navbarlogin/navbarlogin.component';
 import { UsersComponent } from './users/users.component';
 import { TourlistComponent } from './tourlist/tourlist.component';
+import { LoginPhoneComponent } from './login-phone/login-phone.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { TourlistComponent } from './tourlist/tourlist.component';
     NavbarloginComponent,
     UsersComponent,
     TourlistComponent,
+    LoginPhoneComponent,
   ],
   imports: [
     BrowserModule,
