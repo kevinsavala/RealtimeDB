@@ -37,14 +37,20 @@
             <br>
             <span>¿Deseas iniciar sesión con tu correo? <a routerLink="/login">Inicia sesión (correo)</a></span>
             <br>
-                        
+              
             <button type="submit" class="btn btn-primary btn-customized mt-4" (click)="login()">
             Iniciar sesión
-            </button>
+            </button><br> <br>
           </form>
           <!-- Form end -->
+
+          <div>
+            <label for="code">Ingresa tu código de verificación</label>
+            <input type="text" name="code" [(ngModel)]="verificationCode" class="input">
+            <br><button (click)="verifyLoginCode()">Verificar</button>
+          </div>
+        </div>
         </div>
       </div>
-    </div>
 </body>
 </html>

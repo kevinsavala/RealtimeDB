@@ -21,6 +21,7 @@ import { NavbarloginComponent } from './navbarlogin/navbarlogin.component';
 import { UsersComponent } from './users/users.component';
 import { TourlistComponent } from './tourlist/tourlist.component';
 import { LoginPhoneComponent } from './login-phone/login-phone.component';
+import { VerificarComponent } from './verificar/verificar.component';
 
 
 
@@ -36,6 +37,7 @@ import { LoginPhoneComponent } from './login-phone/login-phone.component';
     UsersComponent,
     TourlistComponent,
     LoginPhoneComponent,
+    VerificarComponent,
 
   ],
   imports: [

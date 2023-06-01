@@ -7,9 +7,11 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import { Observable } from 'rxjs';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { Router } from '@angular/router';
 var verifyer : RecaptchaVerifier;
 
-import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+
 @Component({
   selector: 'app-login-phone',
   templateUrl: './login-phone.component.html',
@@ -20,7 +22,7 @@ export class LoginPhoneComponent {
   number : string = '';
   windowRef: any;
   verificationCode: string | undefined;
-  constructor(public auth: AunthenticationService, private win: WindowService){}
+  constructor(public auth: AunthenticationService, private win: WindowService, private router : Router){}
   
   login() {
     var appVerifier = this.windowRef.recaptchaVerifier;
@@ -32,6 +34,7 @@ export class LoginPhoneComponent {
     //this.auth.loginPhone(this.number,this.password);
     firebase.auth().signInWithPhoneNumber(this.number, appVerifier).then(result => {
       this.windowRef.confirmationResult = result;
+      localStorage.setItem("confirmationResult", JSON.stringify(result));
       console.log("Se supone que se envio el mensaje")
     }). catch(error => console.log("ERROR: "+error));
     this.number = '';
@@ -39,7 +42,13 @@ export class LoginPhoneComponent {
   }
 
   ngOnInit(){
-    this.windowRef = this.win.windowRef;
+    if(localStorage.getItem("confirmationResult")){
+      this.windowRef = JSON.parse(localStorage.getItem("confirmationResult")!);
+    } else{
+      this.windowRef = this.win.windowRef;
+    }
+
+    
     this.windowRef.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
       'size': 'visible',
       'callback': function (response: any) {
@@ -49,6 +58,14 @@ export class LoginPhoneComponent {
     
     this.windowRef.recaptchaVerifier.render();
   }
-  
+  verifyLoginCode() {
+    this.windowRef.confirmationResult
+      .confirm(this.verificationCode)
+      .then((result: { user: any; }) => {
+        localStorage.setItem('token', 'true');
+        this.router.navigate(['/reservar']);
+      })
+      .catch((error: any) => console.log(error, "Código erroneo?"))
+  }
 
 }
